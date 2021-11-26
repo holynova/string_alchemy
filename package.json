@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "ipinyinjs": "^1.0.0"
+  },
+  "dependencies": {
+    "ipinyinjs": "^1.0.0",
+    "pinyin-pro": "^3.3.1"
+  }
+}
