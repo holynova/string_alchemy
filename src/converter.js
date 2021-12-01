@@ -15,7 +15,7 @@ function convert(string, dict = {}) {
     if (pinyinWithTone in dict) {
       let found = dict[pinyinWithTone];
       if (found.length === 1) {
-        return found[0];
+        return [found[0]];
       } else {
         // 找到了多个
         return found;
@@ -35,7 +35,7 @@ function convert(string, dict = {}) {
         // return `(${allMatch.join("|")})`;
         return allMatch;
       } else {
-        return x;
+        return [x];
       }
     }
   });
@@ -44,9 +44,14 @@ function convert(string, dict = {}) {
 }
 
 function test() {
-  let input = "老小子, 芦荟汁, 玛莎拉, 干净又卫生";
+  // let input = "西瓜,老小子, 芦荟汁, 玛莎拉, 干净又卫生";
+  let input = "桑益民,丁晓杰,刘庸干净又卫生,老小子,芦荟汁,玛莎拉";
   // console.log({ in: input, out: convert(input, fullDict) });
   console.log({ in: input, out: convert(input, simpleDict) });
+  let str = convert(input, simpleDict)
+    .map((x) => x[0])
+    .join("");
+  console.log(str);
   // console.log({ in: input, out: convert(input, elementDict) });
 }
 
