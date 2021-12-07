@@ -62,7 +62,8 @@ function makeAllDict() {
   Object.entries(rawDict).forEach(([key, value]) => {
     const fileName = `${key}.js`;
     const { dict, notFound } = makeOneDict(getUniqueCharList(value), true);
-    saveToFile({ data: JSON.stringify(dict), fileName });
+    // saveToFile({ data: JSON.stringify(dict), fileName });
+    saveToFile({ data: "export default " + JSON.stringify(dict), fileName });
   });
 }
 

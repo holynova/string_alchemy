@@ -3,7 +3,7 @@ const fullDict = require("./dict/fullDict");
 const elementDict = require("./dict/elementDict");
 const simpleDict = require("./dict/simpleDict");
 
-function convert(string, dict = {}) {
+function convert(input, dict = {}) {
   let charArr = string.split("").map((x) => {
     let pinyinWithTone = pinyin(x, { toneType: "num" });
     // 没有找到拼音
