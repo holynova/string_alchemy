@@ -24,26 +24,20 @@ import { log } from "../common/utils/debug";
 
 import "./HomePage.scss";
 
-import {
-  jin,
-  mu,
-  shui,
-  huo,
-  tu,
-  shi,
-  qi,
-  elementPeriodicTable,
-} from "../common/tools/output/index";
-import { DictModel } from "../common/tools/output/dict";
-
-// import elementPeriodicTable from "../common/tools/output/elementPeriodicTable.js";
-// import jin from "../common/tools/output/jin.js";
-// import mu from "../common/tools/output/mu.js";
-// import shui from "../common/tools/output/shui.js";
-// import huo from "../common/tools/output/huo.js";
-// import tu from "../common/tools/output/tu.js";
-// import shi from "../common/tools/output/shi.js";
-// import qi from "../common/tools/output/qi.js";
+// import {
+//   jin,
+//   mu,
+//   shui,
+//   huo,
+//   tu,
+//   shi,
+//   qi,
+//   elementPeriodicTable,
+// } from "../../docs/tools/output/index";
+const dictModules = import.meta.glob("../common/dict/*.json");
+export interface DictModel {
+  [key: string]: string[];
+}
 
 // import  {log} from ''
 interface Props {}
@@ -73,6 +67,14 @@ const findDict = (dictName: string): object => {
   return nameMap[dictName] || {};
 };
 
+const loadChosenDicts = (names: string[]) => {
+  let pList = names.map((x) => {
+    let fullName = `../common/dict/${x}.json`;
+    return dictModules[fullName]();
+  });
+  return Promise.all(pList);
+};
+
 const HomePage: React.FC<Props> = (props) => {
   // const [loading, setLoading] = useState(false)
   const [input, setInput] = useState(initWord);
@@ -86,32 +88,15 @@ const HomePage: React.FC<Props> = (props) => {
   ]);
 
   const convert = useCallback(() => {
-    let strArr = convertWithMultiDict(input, dictNames.map(findDict));
-    let solutions = getAllCombinations(strArr);
-    let limit = 10;
-    let limitSolutions = rand.shuffle(solutions).slice(0, limit);
-    setResults(limitSolutions);
-
-    // let lengthList = res.map((x) => x.length);
-
-    // let solutionCount = lengthList.reduce((p, c) => p * c, 1);
-    // const pickOne = () => {
-    //   return res
-    //     .map((x) => {
-    //       return rand.choose(x);
-    //     })
-    //     .join("");
-    // };
-    // let count = solutionCount > 5 ? 5 : solutionCount;
-    // let resultList = [];
-    // for (let i = 0; i < count; i++) {
-    //   resultList.push(pickOne());
-    // }
-    // // let resultList = new Array(count).fill("").map((_) => pickOne());
-    // console.log("lengthList", lengthList);
-
-    // setOutput(res.map((x) => x[0]).join(""));
-    // setResults(resultList);
+    loadChosenDicts(dictNames)
+      .then((dicts) => {
+        let strArr = convertWithMultiDict(input, dicts);
+        let solutions = getAllCombinations(strArr);
+        let limit = 10;
+        let limitSolutions = rand.shuffle(solutions).slice(0, limit);
+        setResults(limitSolutions);
+      })
+      .catch((e) => Toast.show("魔法书加载失败"));
   }, [input, dictNames]);
 
   useEffect(() => {

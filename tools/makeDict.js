@@ -56,20 +56,34 @@ function printDict(dict) {
   log(`module.exports = {${str}}`);
 }
 
-function makeAllDict() {
+function makeAllDict(type = "ts", outputDir = "./output") {
   const rawDict = { jin, mu, shui, huo, tu, shi, qi, elementPeriodicTable };
 
   Object.entries(rawDict).forEach(([key, value]) => {
-    const fileName = `${key}.ts`;
     const { dict, notFound } = makeOneDict(getUniqueCharList(value), true);
-    // saveToFile({ data: JSON.stringify(dict), fileName });
-    const all = `
-    import { DictModel } from "./dict.d";
-    const dict: DictModel = ${JSON.stringify(dict)}
-    export default dict
-`;
-    saveToFile({ data: all, fileName });
+    if (type === "ts") {
+      const fileName = `${key}.ts`;
+      // saveToFile({ data: JSON.stringify(dict), fileName });
+      const all = `
+      import { DictModel } from "./dict.d";
+      const dict: DictModel = ${JSON.stringify(dict)}
+      export default dict
+      `;
+      saveToFile({ data: all, fileName, outputDir });
+    } else if (type === "js") {
+      saveToFile({
+        data: `export default ${JSON.stringify(dict)}`,
+        fileName: `${key}.js`,
+        outputDir,
+      });
+    } else if (type === "json") {
+      saveToFile({
+        data: JSON.stringify(dict),
+        fileName: `${key}.json`,
+        outputDir,
+      });
+    }
   });
 }
 
-makeAllDict();
+makeAllDict("json", "./src/common/dict");

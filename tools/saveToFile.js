@@ -22,7 +22,7 @@ function saveToFile({ data, outputDir = "./output", fileName }) {
   return fileUtil
     .writeFile(path.join(outputDir, name), dataStr)
     .then((res) => {
-      log("写入成功" + name);
+      log(`写入成功, 文件位置 ${path.join(outputDir, name)}`);
     })
     .catch((e) => log(e));
 }

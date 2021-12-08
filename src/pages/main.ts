@@ -1,6 +1,6 @@
 import { pinyin } from "pinyin-pro";
 
-interface DictModel {
+export interface DictModel {
   [key: string]: string[];
 }
 
