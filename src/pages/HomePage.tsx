@@ -200,6 +200,12 @@ const HomePage: React.FC<Props> = (props) => {
         })}
       </List>
 
+      <div className="author">
+        <p>作者: holynova</p>
+        <a href="https://github.com/holynova/string_alchemy">
+          <p>Fork me on Github</p>
+        </a>
+      </div>
       {/* <Button type="primary">转换</Button> */}
 
       {/* <DebugPanel data={{ input, output, results }}></DebugPanel> */}
