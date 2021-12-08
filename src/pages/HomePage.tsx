@@ -24,16 +24,6 @@ import { log } from "../common/utils/debug";
 
 import "./HomePage.scss";
 
-// import {
-//   jin,
-//   mu,
-//   shui,
-//   huo,
-//   tu,
-//   shi,
-//   qi,
-//   elementPeriodicTable,
-// } from "../../docs/tools/output/index";
 const dictModules = import.meta.glob("../common/dict/*.json");
 export interface DictModel {
   [key: string]: string[];
@@ -52,20 +42,6 @@ const options = [
   { label: "石", value: "shi" },
   { label: "气", value: "qi" },
 ];
-
-const findDict = (dictName: string): object => {
-  const nameMap: { [key: string]: DictModel } = {
-    elementPeriodicTable,
-    jin,
-    mu,
-    shui,
-    huo,
-    tu,
-    shi,
-    qi,
-  };
-  return nameMap[dictName] || {};
-};
 
 const loadChosenDicts = (names: string[]) => {
   let pList = names.map((x) => {

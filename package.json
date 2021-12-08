@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "publish": "bash publish.bash"
+    "publish": "bash publish.bash",
+    "makeDict": "bash makeDict.bash"
   },
   "dependencies": {
     "antd-mobile": "^5.0.0-rc.2",
