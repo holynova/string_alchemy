@@ -60,10 +60,15 @@ function makeAllDict() {
   const rawDict = { jin, mu, shui, huo, tu, shi, qi, elementPeriodicTable };
 
   Object.entries(rawDict).forEach(([key, value]) => {
-    const fileName = `${key}.js`;
+    const fileName = `${key}.ts`;
     const { dict, notFound } = makeOneDict(getUniqueCharList(value), true);
     // saveToFile({ data: JSON.stringify(dict), fileName });
-    saveToFile({ data: "export default " + JSON.stringify(dict), fileName });
+    const all = `
+    import { DictModel } from "./dict.d";
+    const dict: DictModel = ${JSON.stringify(dict)}
+    export default dict
+`;
+    saveToFile({ data: all, fileName });
   });
 }
 

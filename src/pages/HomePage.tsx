@@ -13,6 +13,7 @@ import Button from "antd-mobile/es/components/button";
 import List from "antd-mobile/es/components/list";
 import Toast from "antd-mobile/es/components/toast";
 
+// @ts-ignore
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as rand from "../common/utils/rand";
@@ -33,6 +34,7 @@ import {
   qi,
   elementPeriodicTable,
 } from "../common/tools/output/index";
+import { DictModel } from "../common/tools/output/dict";
 
 // import elementPeriodicTable from "../common/tools/output/elementPeriodicTable.js";
 // import jin from "../common/tools/output/jin.js";
@@ -58,7 +60,7 @@ const options = [
 ];
 
 const findDict = (dictName: string): object => {
-  const nameMap: { [key: string]: string[] } = {
+  const nameMap: { [key: string]: DictModel } = {
     elementPeriodicTable,
     jin,
     mu,
@@ -70,36 +72,6 @@ const findDict = (dictName: string): object => {
   };
   return nameMap[dictName] || {};
 };
-
-const getResult = (inputStr: string, dictNames: string[]): string[][] => {
-  let strArr = convertWithMultiDict(inputStr, dictNames.map(findDict));
-  let solutions = getAllCombinations(strArr);
-  let limit = 10;
-};
-
-function getResult1({ inputStr = "", dictNames = [] }) {
-  return convertWithMultiDict(inputStr, dictNames.map(findDict));
-
-  // let promiseList = dictNames.map(
-  //   (name) => import("../common/tools/output/" + name + ".js")
-  // );
-
-  // return Promise.all(promiseList)
-  //   .then((arr) => {
-  //     // 合并
-  //     return arr.reduce((pre, cur, index) => {
-  //       return { ...pre, ...cur };
-  //     }, {});
-  //   })
-  //   .then((fullDict) => {
-  //     let res = convert(inputStr, fullDict);
-  //     log("convert result", res);
-  //   })
-  //   .catch((e) => {
-  //     console.log(e);
-  //     // log("error", e);
-  //   });
-}
 
 const HomePage: React.FC<Props> = (props) => {
   // const [loading, setLoading] = useState(false)
