@@ -1,6 +1,10 @@
 .HomePage {
   margin: 0 auto;
-  width: 80%;
+  // width: 80%;
   background-color: #fff;
   min-height: 100vh;
+  .adm-selector-item{
+    // min-width: 60px;
+    width: 25vw;
+  }
 }

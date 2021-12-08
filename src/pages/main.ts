@@ -4,7 +4,7 @@ interface DictModel {
   [key: string]: string[];
 }
 
-export function mergeAllDict(dictList = []) {
+export function mergeAllDict(dictList: DictModel[]) {
   return dictList.reduce((pre, cur) => {
     return { ...pre, ...cur };
   }, {});
@@ -13,11 +13,11 @@ export function mergeAllDict(dictList = []) {
 export function convert(inputStr: string, dict: DictModel) {
   let charArr = inputStr.split("").map((x) => {
     let pinyinWithTone = pinyin(x, { toneType: "num" });
-    console.log({ inputStr, pinyinWithTone, dict });
+    // console.log({ inputStr, pinyinWithTone, dict });
 
     // 没有找到拼音
     if (pinyinWithTone === x) {
-      return x;
+      return [x];
     }
 
     // 先从同音调的里面找
@@ -44,7 +44,10 @@ export function convert(inputStr: string, dict: DictModel) {
   return charArr;
 }
 
-export function convertWithMultiDict(inputStr: string, dictList: any[]) {
-  console.log("convertWithMultiDict", arguments);
+export function convertWithMultiDict(
+  inputStr: string,
+  dictList: any[]
+): string[][] {
+  // console.log("convertWithMultiDict", arguments);
   return convert(inputStr, mergeAllDict(dictList));
 }
