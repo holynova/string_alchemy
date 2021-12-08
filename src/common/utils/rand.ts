@@ -17,13 +17,13 @@ export function choose(arr = []) {
   return arr[index];
 }
 
-export function timestamp(min = 0, max) {
+export function timestamp(min = 0, max: number = Date.now()) {
   min = min || new Date("2008-5-12").getTime();
   max = max || Date.now();
   return between(min, max);
 }
 
-export function shuffle(arr) {
+export function shuffle(arr: any[]) {
   if (Array.isArray(arr)) {
     for (let i = arr.length - 1; i > 0; i--) {
       let index = between(0, i);

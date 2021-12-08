@@ -51,3 +51,21 @@ export function convertWithMultiDict(
   // console.log("convertWithMultiDict", arguments);
   return convert(inputStr, mergeAllDict(dictList));
 }
+
+// 根据结果进行排列组合
+export function getAllCombinations(arr: string[][]) {
+  let res: string[] = [];
+  let maxLevel = arr.length;
+  function loop(str: string, level: number) {
+    if (level === maxLevel) {
+      res.push(str);
+    } else {
+      let newStrList = arr[level].map((x) => `${str}${x}`);
+      newStrList.forEach((x) => {
+        loop(x, level + 1);
+      });
+    }
+  }
+  loop("", 0);
+  return res;
+}

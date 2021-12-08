@@ -7,4 +7,19 @@
     // min-width: 60px;
     width: 25vw;
   }
+  .main-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 8px;
+  }
+
+  .result-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .copy-button{
+      color: lightblue;
+    }
+  }
 }

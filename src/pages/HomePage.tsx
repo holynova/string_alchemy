@@ -11,10 +11,13 @@ import Input from "antd-mobile/es/components/input";
 import Selector from "antd-mobile/es/components/selector";
 import Button from "antd-mobile/es/components/button";
 import List from "antd-mobile/es/components/list";
+import Toast from "antd-mobile/es/components/toast";
+
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import * as rand from "../common/utils/rand";
 
-import { convert, convertWithMultiDict } from "./main";
+import { convert, convertWithMultiDict, getAllCombinations } from "./main";
 import DebugPanel from "../common/components/DebugPanel";
 import { log } from "../common/utils/debug";
 
@@ -69,7 +72,9 @@ const findDict = (dictName: string): object => {
 };
 
 const getResult = (inputStr: string, dictNames: string[]): string[][] => {
-  return convertWithMultiDict(inputStr, dictNames.map(findDict));
+  let strArr = convertWithMultiDict(inputStr, dictNames.map(findDict));
+  let solutions = getAllCombinations(strArr);
+  let limit = 10;
 };
 
 function getResult1({ inputStr = "", dictNames = [] }) {
@@ -103,29 +108,38 @@ const HomePage: React.FC<Props> = (props) => {
   const [results, setResults] = useState(["请输入"]);
   const [dictNames, setDictNames] = useState<string[]>([
     "elementPeriodicTable",
+    "jin",
+    // "shi",
+    "qi",
   ]);
 
   const convert = useCallback(() => {
-    let res = getResult(input, dictNames);
-    let lengthList = res.map((x) => x.length);
-    let solutionCount = lengthList.reduce((p, c) => p * c, 1);
-    const pickOne = () => {
-      return res
-        .map((x) => {
-          return rand.choose(x);
-        })
-        .join("");
-    };
-    let count = solutionCount > 5 ? 5 : solutionCount;
-    let resultList = [];
-    for (let i = 0; i < count; i++) {
-      resultList.push(pickOne());
-    }
-    // let resultList = new Array(count).fill("").map((_) => pickOne());
-    console.log("lengthList", lengthList);
+    let strArr = convertWithMultiDict(input, dictNames.map(findDict));
+    let solutions = getAllCombinations(strArr);
+    let limit = 10;
+    let limitSolutions = rand.shuffle(solutions).slice(0, limit);
+    setResults(limitSolutions);
 
-    setOutput(res.map((x) => x[0]).join(""));
-    setResults(resultList);
+    // let lengthList = res.map((x) => x.length);
+
+    // let solutionCount = lengthList.reduce((p, c) => p * c, 1);
+    // const pickOne = () => {
+    //   return res
+    //     .map((x) => {
+    //       return rand.choose(x);
+    //     })
+    //     .join("");
+    // };
+    // let count = solutionCount > 5 ? 5 : solutionCount;
+    // let resultList = [];
+    // for (let i = 0; i < count; i++) {
+    //   resultList.push(pickOne());
+    // }
+    // // let resultList = new Array(count).fill("").map((_) => pickOne());
+    // console.log("lengthList", lengthList);
+
+    // setOutput(res.map((x) => x[0]).join(""));
+    // setResults(resultList);
   }, [input, dictNames]);
 
   useEffect(() => {
@@ -134,13 +148,13 @@ const HomePage: React.FC<Props> = (props) => {
 
   return (
     <div className="HomePage">
-      <h1>弹幕附魔器</h1>
+      <div className="main-title">弹幕附魔</div>
       <List
         style={{
           "--prefix-width": "6em",
         }}
       >
-        <List.Item title="原文字">
+        <List.Item title="请输入">
           <Input
             placeholder="请输入内容"
             clearable
@@ -157,16 +171,32 @@ const HomePage: React.FC<Props> = (props) => {
             onChange={(values) => setDictNames(values as string[])}
           ></Selector>
         </List.Item>
-        <List.Item title="转换后">{/* <h3>{output}</h3> */}</List.Item>
+        <List.Item title="附魔后">{/* <h3>{output}</h3> */}</List.Item>
       </List>
-      {/* <hr /> */}
+      <Button block color="primary" onClick={convert}>
+        重新附魔
+      </Button>
       <List
         style={{
           "--prefix-width": "6em",
         }}
       >
         {results.map((x, i) => {
-          return <List.Item key={i}>{x}</List.Item>;
+          return (
+            <List.Item key={i}>
+              <CopyToClipboard
+                text={x}
+                onCopy={() => {
+                  Toast.show("已复制:" + x);
+                }}
+              >
+                <div className="result-item">
+                  {x}
+                  <span className="copy-button">复制</span>
+                </div>
+              </CopyToClipboard>
+            </List.Item>
+          );
         })}
       </List>
 
