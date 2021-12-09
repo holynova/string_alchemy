@@ -68,7 +68,7 @@ const HomePage: React.FC<Props> = (props) => {
       .then((dicts) => {
         let strArr = convertWithMultiDict(input, dicts);
         let solutions = getAllCombinations(strArr);
-        let limit = 10;
+        let limit = 5;
         let limitSolutions = rand.shuffle(solutions).slice(0, limit);
         setResults(limitSolutions);
       })
