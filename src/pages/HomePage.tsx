@@ -72,7 +72,10 @@ const HomePage: React.FC<Props> = (props) => {
         let limitSolutions = rand.shuffle(solutions).slice(0, limit);
         setResults(limitSolutions);
       })
-      .catch((e) => Toast.show("魔法书加载失败"));
+      .catch((e) => {
+        Toast.show("魔法书加载失败");
+        console.log("魔法书加载失败", e);
+      });
   }, [input, dictNames]);
 
   useEffect(() => {

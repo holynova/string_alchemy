@@ -1,4 +1,5 @@
 import { pinyin } from "pinyin-pro";
+import { log } from "../common/utils/debug";
 
 export interface DictModel {
   [key: string]: string[];
@@ -6,14 +7,27 @@ export interface DictModel {
 
 export function mergeAllDict(dictList: DictModel[]) {
   return dictList.reduce((pre, cur) => {
-    return { ...pre, ...cur };
+    // 有两个相同的, 需要将value数组进行concat, 而不是暴力合并
+    let res = { ...pre };
+    Object.entries(cur).forEach(([key, value]) => {
+      // 每个dict实际上是当作module引入进来的, 所以会有个的default的key
+      if (key === "default") {
+        return;
+      }
+
+      if (key in res) {
+        res[key] = [...res[key], ...value];
+      } else {
+        res[key] = value;
+      }
+    });
+    return res;
   }, {});
 }
 
 export function convert(inputStr: string, dict: DictModel) {
   let charArr = inputStr.split("").map((x) => {
     let pinyinWithTone = pinyin(x, { toneType: "num" });
-    // console.log({ inputStr, pinyinWithTone, dict });
 
     // 没有找到拼音
     if (pinyinWithTone === x) {
@@ -48,7 +62,6 @@ export function convertWithMultiDict(
   inputStr: string,
   dictList: any[]
 ): string[][] {
-  // console.log("convertWithMultiDict", arguments);
   return convert(inputStr, mergeAllDict(dictList));
 }
 
