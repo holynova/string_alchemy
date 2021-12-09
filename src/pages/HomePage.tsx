@@ -101,6 +101,7 @@ const HomePage: React.FC<Props> = (props) => {
         </List.Item>
         <List.Item title="魔法书">
           <Selector
+            columns={3}
             multiple
             value={dictNames}
             options={options}
