@@ -1,0 +1,10 @@
+.git/
+.github/
+.wrangler/
+.playwright-cli/
+README.md
+readme.md
+publish.bash
+makeDict.bash
+tools/
+pics/

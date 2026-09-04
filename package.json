@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:pages": "VITE_PAGES=true pnpm run build && pnpm run build",
     "serve": "vite preview",
     "publish": "bash publish.bash",
     "makeDict": "bash makeDict.bash"
