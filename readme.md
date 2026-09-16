@@ -2,6 +2,11 @@
 
 将普通文字转换为同音的化学元素文字，用于制作带元素符号趣味的短句。
 
+<p align="center">
+  <img src="assets/readme/hero.svg" width="100%" alt="弹幕附魔: 将普通文字转换为同音的化学元素文字，用于制作带元素符号趣味的短句。">
+</p>
+
+
 ## 网址
 http://xiaosang.net/string_alchemy/
 
