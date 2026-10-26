@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">弹幕附魔</title>
+  <desc id="desc">将普通文字转换为同音的化学元素文字，用于制作带元素符号趣味的短句。</desc>
+  <rect width="1200" height="360" rx="28" fill="#151a1c"/>
+  <path d="M0 310C250 280 410 342 650 300s350-18 550 20v40H0Z" fill="#75a28f" opacity=".12"/>
+  <text x="58" y="52" fill="#ce8c4b" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" letter-spacing="2.5">SOUND · ELEMENTS · TEXT</text>
+  <path d="M58 70H710" stroke="#75a28f" stroke-width="2" opacity=".6"/>
+  <text x="58" y="126" fill="#eff2e8" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, sans-serif" font-size="52" font-weight="700">弹幕附魔</text>
+  <text x="60" y="190" fill="#75a28f" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, sans-serif" font-size="21">将普通文字转换为同音的化学元素文字，用于制作带元素符号趣味的短句。</text>
+    <g transform="translate(60 244)"><rect width="250" height="34" rx="17" fill="#ce8c4b"/><text x="18" y="23" fill="#151a1c" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14">PROJECT-NATIVE README</text></g>
+  <g transform="translate(816 52)"><rect width="326" height="232" rx="16" fill="#eff2e8"/><path d="M24 40h278M128 40v174M230 40v174" stroke="#75a28f" stroke-width="3"/><path d="M24 70h286" stroke="#75a28f" stroke-width="3" opacity=".8"/><path d="M24 104h286" stroke="#75a28f" stroke-width="3" opacity=".8"/><path d="M24 138h286" stroke="#75a28f" stroke-width="3" opacity=".8"/><path d="M24 172h286" stroke="#75a28f" stroke-width="3" opacity=".8"/><path d="M24 206h286" stroke="#75a28f" stroke-width="3" opacity=".8"/><rect x="30" y="79" width="84" height="15" rx="7" fill="#ce8c4b"/><rect x="138" y="113" width="72" height="15" rx="7" fill="#ce8c4b" opacity=".8"/></g>
+</svg>
