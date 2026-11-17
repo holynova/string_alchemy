@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="360" viewBox="0 0 1200 360"
+     role="img" aria-labelledby="title desc">
+  <title id="title">弹幕附魔 String Alchemy — 把中文变成同音的元素文字</title>
+  <desc id="desc">深色炼金实验室底标题：弹幕附魔，副标题同音不同字，元素来附魔；右侧是转换示例，刘庸干净又卫生变成硫镛干镜铀卫生，无同音的字保持原样。</desc>
+
+  <rect width="1200" height="360" rx="26" fill="#0e1a17"/>
+
+  <g id="flask-decor" opacity="0.14" stroke="#2dd4bf" stroke-width="2" fill="none">
+    <path d="M1080 40 h40 l-14 44 a30 30 0 1 1 -52 0 z"/>
+    <circle cx="1100" cy="86" r="4" fill="#2dd4bf" stroke="none"/>
+    <circle cx="1090" cy="96" r="3" fill="#2dd4bf" stroke="none"/>
+    <circle cx="1112" cy="98" r="2.5" fill="#2dd4bf" stroke="none"/>
+  </g>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="56" y="62" font-size="19" letter-spacing="3" fill="#7dd3c0">中文同音转换 · HOMOPHONIC ELEMENT TEXT</text>
+    <text x="56" y="128" font-size="62" font-weight="700" fill="#fbbf24">弹幕附魔</text>
+    <text x="56" y="168" font-size="23" fill="#e8ecf4">STRING ALCHEMY — 同音不同字，元素来附魔</text>
+    <text x="56" y="204" font-size="19" fill="#aab6cc">输入一句话，换成同音的元素与五行字，发弹幕用。</text>
+    <g id="chips" font-size="18" fill="#e8ecf4" text-anchor="middle">
+      <g><rect x="56" y="238" width="126" height="36" rx="18" fill="#16261f" stroke="#2a4a3e" stroke-width="1.5"/><text x="119" y="262">8 本魔法书</text></g>
+      <g><rect x="194" y="238" width="150" height="36" rx="18" fill="#16261f" stroke="#2a4a3e" stroke-width="1.5"/><text x="269" y="262">3618 候选字</text></g>
+      <g><rect x="356" y="238" width="126" height="36" rx="18" fill="#16261f" stroke="#2a4a3e" stroke-width="1.5"/><text x="419" y="262">随机 5 条</text></g>
+      <g><rect x="494" y="238" width="126" height="36" rx="18" fill="#16261f" stroke="#2a4a3e" stroke-width="1.5"/><text x="557" y="262">一键复制</text></g>
+    </g>
+  </g>
+
+  <g id="alchemy-diagram" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+    <text x="700" y="40" font-size="18" fill="#7dd3c0">转换示例 · 例句来自 B 站 UP 主「刘庸干净又卫生」</text>
+    <g id="input-row" font-size="26" text-anchor="middle">
+      <g><rect x="700" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="726" y="99" fill="#e8ecf4">刘</text></g>
+      <g><rect x="760" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="786" y="99" fill="#e8ecf4">庸</text></g>
+      <g><rect x="820" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="846" y="99" fill="#e8ecf4">干</text></g>
+      <g><rect x="880" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="906" y="99" fill="#e8ecf4">净</text></g>
+      <g><rect x="940" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="966" y="99" fill="#e8ecf4">又</text></g>
+      <g><rect x="1000" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="1026" y="99" fill="#e8ecf4">卫</text></g>
+      <g><rect x="1060" y="64" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5"/><text x="1086" y="99" fill="#e8ecf4">生</text></g>
+    </g>
+    <g id="arrow" stroke="#fbbf24" stroke-width="3" fill="none">
+      <path d="M906 132 V168"/>
+      <path d="M896 158 L906 170 L916 158" fill="#fbbf24" stroke="none"/>
+    </g>
+    <text x="926" y="158" font-size="18" fill="#fbbf24">附魔</text>
+    <g id="output-row" font-size="26" text-anchor="middle">
+      <g><rect x="700" y="184" width="52" height="52" rx="8" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/><text x="726" y="219" fill="#1a1405">硫</text></g>
+      <g><rect x="760" y="184" width="52" height="52" rx="8" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/><text x="786" y="219" fill="#1a1405">镛</text></g>
+      <g><rect x="820" y="184" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5" stroke-dasharray="4 3"/><text x="846" y="219" fill="#e8ecf4">干</text></g>
+      <g><rect x="880" y="184" width="52" height="52" rx="8" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/><text x="906" y="219" fill="#1a1405">镜</text></g>
+      <g><rect x="940" y="184" width="52" height="52" rx="8" fill="#fbbf24" stroke="#d97706" stroke-width="1.5"/><text x="966" y="219" fill="#1a1405">铀</text></g>
+      <g><rect x="1000" y="184" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5" stroke-dasharray="4 3"/><text x="1026" y="219" fill="#e8ecf4">卫</text></g>
+      <g><rect x="1060" y="184" width="52" height="52" rx="8" fill="#1a2b26" stroke="#2a4a3e" stroke-width="1.5" stroke-dasharray="4 3"/><text x="1086" y="219" fill="#e8ecf4">生</text></g>
+    </g>
+    <g id="element-tags" font-size="18" text-anchor="middle">
+      <text x="726" y="272" fill="#7dd3c0">S 硫</text>
+      <text x="966" y="272" fill="#7dd3c0">U 铀</text>
+      <text x="1064" y="272" fill="#7dd3c0">虚线留原字</text>
+    </g>
+    <text x="906" y="316" font-size="18" fill="#aab6cc" text-anchor="middle">「硫镛干镜铀卫生」—— 读起来还是那句话</text>
+  </g>
+</svg>
